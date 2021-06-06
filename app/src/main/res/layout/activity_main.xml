@@ -24,14 +24,14 @@
                 <TextView
                     android:id="@+id/tv_expression"
                     style="@style/textview_right"
-                    android:fontFamily="sans-serif-thin"
-                    android:text="0"
-                    android:textSize="100sp" />
+                    android:textSize="60sp"
+                    android:text="0" />
 
                 <TextView
                     style="@style/textview_right"
                     android:id="@+id/tv_result"
-                    android:textSize="50sp" />
+                    android:textSize="50sp"
+                    android:textColor="@color/gold"/>
             </LinearLayout>
         </ScrollView>
 
@@ -43,49 +43,48 @@
                 style="@style/linear_layout_h_row" >
 
                 <Button
+                    style="@style/button"
                     android:id="@+id/btn_clear"
-                    style="@style/button"
                     android:text="@string/btn_clear"
-                    android:onClick="btnOnClick" />
-
+                    android:onClick="btnClearOnClick" />
                 <Button
+                    style="@style/button"
                     android:id="@+id/btn_positive_negative"
-                    style="@style/button"
                     android:text="@string/btn_positive_negative" />
-
                 <Button
-                    android:id="@+id/btn_percent"
                     style="@style/button"
+                    android:id="@+id/btn_percent"
                     android:text="@string/btn_percent" />
-
                 <Button
-                    android:id="@+id/btn_operand_division"
                     style="@style/button_red"
-                    android:text="@string/btn_operand_division" />
+                    android:id="@+id/btn_operand_division"
+                    android:text="@string/btn_operand_division"
+                    android:onClick="btnOperatorOnClick" />
             </LinearLayout>
 
             <LinearLayout style="@style/linear_layout_h_row">
 
                 <Button
-                    android:id="@+id/btn_number_7"
                     style="@style/button"
+                    android:id="@+id/btn_number_7"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/btn_number_7" />
-
+                    android:text="@string/btn_number_7"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_8"
-                    android:text="@string/btn_number_8" />
-
+                    android:text="@string/btn_number_8"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_9"
-                    android:text="@string/btn_number_9" />
-
+                    android:text="@string/btn_number_9"
+                    android:onClick="btnNumberOnClick" />
                 <Button
-                    android:id="@+id/btn_operand_multiplication"
                     style="@style/button_red"
-                    android:text="@string/btn_operand_multiplication" />
+                    android:id="@+id/btn_operand_multiplication"
+                    android:text="@string/btn_operand_multiplication"
+                    android:onClick="btnOperatorOnClick" />
             </LinearLayout>
 
             <LinearLayout style="@style/linear_layout_h_row">
@@ -93,22 +92,23 @@
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_4"
-                    android:text="@string/btn_number_4" />
-
+                    android:text="@string/btn_number_4"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_5"
-                    android:text="@string/btn_number_5" />
-
+                    android:text="@string/btn_number_5"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_6"
-                    android:text="@string/btn_number_6" />
-
+                    android:text="@string/btn_number_6"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button_red"
                     android:id="@+id/btn_operand_minus"
-                    android:text="@string/btn_operand_minus" />
+                    android:text="@string/btn_operand_minus"
+                    android:onClick="btnOperatorOnClick" />
             </LinearLayout>
 
             <LinearLayout style="@style/linear_layout_h_row">
@@ -116,22 +116,23 @@
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_1"
-                    android:text="@string/btn_number_1" />
-
+                    android:text="@string/btn_number_1"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_2"
-                    android:text="@string/btn_number_2" />
-
+                    android:text="@string/btn_number_2"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_number_3"
-                    android:text="@string/btn_number_3" />
-
+                    android:text="@string/btn_number_3"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button_red"
                     android:id="@+id/btn_operand_plus"
-                    android:text="@string/btn_operand_plus" />
+                    android:text="@string/btn_operand_plus"
+                    android:onClick="btnOperatorOnClick" />
             </LinearLayout>
 
             <LinearLayout style="@style/linear_layout_h_row">
@@ -139,17 +140,18 @@
                 <Button
                     style="@style/button_two_columns"
                     android:id="@+id/btn_number_0"
-                    android:text="@string/btn_number_0" />
-
+                    android:text="@string/btn_number_0"
+                    android:onClick="btnNumberOnClick" />
                 <Button
                     style="@style/button"
                     android:id="@+id/btn_dot"
-                    android:text="@string/btn_dot" />
-
+                    android:text="@string/btn_dot"
+                    android:onClick="btnDotOnClick" />
                 <Button
                     style="@style/button_red"
                     android:id="@+id/btn_result"
-                    android:text="@string/btn_result" />
+                    android:text="@string/btn_result"
+                    android:onClick="btnResultOnClick" />
             </LinearLayout>
 
 

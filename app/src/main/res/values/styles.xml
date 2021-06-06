@@ -88,7 +88,8 @@
     </style>
 
     <style name="textview_right" parent="textview">
-        <item name="android:textDirection">rtl</item>
+<!--        <item name="android:textDirection">rtl</item>-->
+        <item name="android:textAlignment">textEnd</item>
     </style>
 
 

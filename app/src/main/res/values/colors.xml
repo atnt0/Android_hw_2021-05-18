@@ -9,6 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="gray">#FF555555</color>
+    <color name="gold">#FFFFAA00</color>
+
+
 
     <color name="btn_background">@color/white</color>
     <color name="btn_red_background">#FFFF0000</color>
@@ -18,5 +21,6 @@
 
     <color name="layout_tvs_background">@color/black</color>
     <color name="layout_tvs_color">@color/white</color>
+    <color name="layout_tvs_result_color">@color/gold</color>
 
 </resources>
