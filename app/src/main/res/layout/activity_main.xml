@@ -7,21 +7,155 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        style="@style/linear_layout_v"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:weightSum="7"
+        android:background="@color/layout_tvs_background"
         >
+
+        <ScrollView
+            style="@style/scroll_view">
+
+            <LinearLayout
+                style="@style/linear_layout_v_tvs"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_expression"
+                    style="@style/textview_right"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="0"
+                    android:textSize="100sp" />
+
+                <TextView
+                    style="@style/textview_right"
+                    android:id="@+id/tv_result"
+                    android:textSize="50sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            style="@style/linear_layout_v_btns"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/linear_layout_h_row" >
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    style="@style/button"
+                    android:text="@string/btn_clear"
+                    android:onClick="btnOnClick" />
+
+                <Button
+                    android:id="@+id/btn_positive_negative"
+                    style="@style/button"
+                    android:text="@string/btn_positive_negative" />
+
+                <Button
+                    android:id="@+id/btn_percent"
+                    style="@style/button"
+                    android:text="@string/btn_percent" />
+
+                <Button
+                    android:id="@+id/btn_operand_division"
+                    style="@style/button_red"
+                    android:text="@string/btn_operand_division" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_layout_h_row">
+
+                <Button
+                    android:id="@+id/btn_number_7"
+                    style="@style/button"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/btn_number_7" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_8"
+                    android:text="@string/btn_number_8" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_9"
+                    android:text="@string/btn_number_9" />
+
+                <Button
+                    android:id="@+id/btn_operand_multiplication"
+                    style="@style/button_red"
+                    android:text="@string/btn_operand_multiplication" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_layout_h_row">
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_4"
+                    android:text="@string/btn_number_4" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_5"
+                    android:text="@string/btn_number_5" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_6"
+                    android:text="@string/btn_number_6" />
+
+                <Button
+                    style="@style/button_red"
+                    android:id="@+id/btn_operand_minus"
+                    android:text="@string/btn_operand_minus" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_layout_h_row">
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_1"
+                    android:text="@string/btn_number_1" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_2"
+                    android:text="@string/btn_number_2" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_number_3"
+                    android:text="@string/btn_number_3" />
+
+                <Button
+                    style="@style/button_red"
+                    android:id="@+id/btn_operand_plus"
+                    android:text="@string/btn_operand_plus" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_layout_h_row">
+
+                <Button
+                    style="@style/button_two_columns"
+                    android:id="@+id/btn_number_0"
+                    android:text="@string/btn_number_0" />
+
+                <Button
+                    style="@style/button"
+                    android:id="@+id/btn_dot"
+                    android:text="@string/btn_dot" />
+
+                <Button
+                    style="@style/button_red"
+                    android:id="@+id/btn_result"
+                    android:text="@string/btn_result" />
+            </LinearLayout>
+
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

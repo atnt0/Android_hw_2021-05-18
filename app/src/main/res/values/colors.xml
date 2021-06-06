@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="gray">#FF555555</color>
+
+    <color name="btn_background">@color/white</color>
+    <color name="btn_red_background">#FFFF0000</color>
+    <color name="btn_color">@color/black</color>
+    <color name="btn_red_color">#FFFFFFFF</color>
+    <color name="btn_stroke">#FF555555</color>
+
+    <color name="layout_tvs_background">@color/black</color>
+    <color name="layout_tvs_color">@color/white</color>
+
 </resources>

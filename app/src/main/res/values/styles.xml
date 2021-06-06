@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="button">
+        <item name="android:fontFamily">sans-serif-light</item>
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/btn_stroke</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:backgroundTint">@color/btn_background</item>
+        <item name="android:textColor">@color/btn_color</item>
+
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
+    <style name="button_two_columns" parent="button">
+        <item name="android:layout_weight">2</item>
+    </style>
+
+    <style name="button_red" parent="button">
+        <item name="android:backgroundTint">@color/btn_red_background</item>
+        <item name="android:textColor">@color/btn_red_color</item>
+    </style>
+
+    <style name="scroll_view">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="table_layout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:weightSum">4</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="linear_layout_h">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:weightSum">4</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="linear_layout_h_row" parent="linear_layout_h">
+        <item name="strokeColor">@color/btn_stroke</item>
+    </style>
+
+    <style name="linear_layout_v">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="linear_layout_v_tvs" parent="linear_layout_v">
+        <item name="android:backgroundTint">@color/layout_tvs_background</item>
+    </style>
+
+    <style name="linear_layout_v_btns" parent="linear_layout_v">
+        <item name="android:background">@color/layout_tvs_background</item>
+        <item name="android:backgroundTint">@color/layout_tvs_background</item>
+
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+
+    <style name="textview">
+        <item name="android:fontFamily">sans-serif-thin</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/layout_tvs_background</item>
+        <item name="android:textColor">@color/layout_tvs_color</item>
+
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+
+    <style name="textview_right" parent="textview">
+        <item name="android:textDirection">rtl</item>
+    </style>
+
+
+</resources>
