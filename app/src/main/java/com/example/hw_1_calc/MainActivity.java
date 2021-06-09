@@ -136,9 +136,6 @@ public class MainActivity extends AppCompatActivity {
                         throw new IllegalStateException("Unexpected value: " + btnId);
                 }
 
-
-
-
 //                if (lastButtonPressed == R.id.btn_dot ) {
 //                    sb.append(operandFirst.getString().substring(0, operandFirst.getString().length() - 1) +" ");
 //                    Log.d("DEBUG", "var 1");
@@ -235,11 +232,10 @@ public class MainActivity extends AppCompatActivity {
     private void showCurrentExpression() {
         StringBuilder sb = new StringBuilder();
 
-        if (lastButtonPressed == R.id.btn_dot ) {
-
-        }
-
-                Log.d("DEBUG", "stageCalculate = "+ stageCalculate +";");
+//        if (lastButtonPressed == R.id.btn_dot ) {
+//
+//        }
+        // Log.d("DEBUG", "stageCalculate = "+ stageCalculate +";");
 
         switch (stageCalculate) {
             case 0:
@@ -393,7 +389,6 @@ public class MainActivity extends AppCompatActivity {
                     lastButtonPressed = R.id.btn_result;
 
                     showCurrentResult();
-
 
                 }
             }

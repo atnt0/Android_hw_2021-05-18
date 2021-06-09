@@ -9,7 +9,7 @@ Target Sdk Version: 23 API<br/>
 ##### **Home works:**
 <ul style="list-style:none;" data-icon1="&#9989;">
     <li>&#9989; 1. Layout design (Buttons) - [step "design"]</li>
-    <li>&#10060; 2. Functional</li>
+    <li>&#9989; 2. Functional</li>
     <li>&#10060; 3. Adapter</li>
     <li>&#10060; 4. Menu</li>
     <li>&#10060; 5. Fragments</li>
