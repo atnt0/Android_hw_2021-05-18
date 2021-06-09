@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.example.hw_1_calc.Models.Operand;
 import com.example.hw_1_calc.Models.Operator;
 
-import java.util.logging.Logger;
-
 public class MainActivity extends AppCompatActivity {
 
     private Operand operandFirst;
@@ -34,11 +32,14 @@ public class MainActivity extends AppCompatActivity {
      */
     private Integer stageCalculate = 0;
 
+    private Integer lastButtonPressed; // last button pressed as last action in calculator
 
     private Boolean isReadyToCalculate = false;
 
     private TextView tv_expression;
     private TextView tv_result;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
                 tv_expression.setText( "" );
                 tv_result.setText( "" );
+
+                lastButtonPressed = R.id.btn_clear;
             }
         }
+
     }
 
     public void btnNumberOnClick(View view) {
@@ -90,47 +94,81 @@ public class MainActivity extends AppCompatActivity {
                 switch (btnId) {
                     case R.id.btn_number_0:
                         digit = 0;
+                        lastButtonPressed = R.id.btn_number_0;
                         break;
                     case R.id.btn_number_1:
                         digit = 1;
+                        lastButtonPressed = R.id.btn_number_1;
                         break;
                     case R.id.btn_number_2:
                         digit = 2;
+                        lastButtonPressed = R.id.btn_number_2;
                         break;
                     case R.id.btn_number_3:
                         digit = 3;
+                        lastButtonPressed = R.id.btn_number_3;
                         break;
                     case R.id.btn_number_4:
                         digit = 4;
+                        lastButtonPressed = R.id.btn_number_4;
                         break;
                     case R.id.btn_number_5:
                         digit = 5;
+                        lastButtonPressed = R.id.btn_number_5;
                         break;
                     case R.id.btn_number_6:
                         digit = 6;
+                        lastButtonPressed = R.id.btn_number_6;
                         break;
                     case R.id.btn_number_7:
                         digit = 7;
+                        lastButtonPressed = R.id.btn_number_7;
                         break;
                     case R.id.btn_number_8:
                         digit = 8;
+                        lastButtonPressed = R.id.btn_number_8;
                         break;
                     case R.id.btn_number_9:
                         digit = 9;
+                        lastButtonPressed = R.id.btn_number_9;
                         break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + btnId);
                 }
 
 
+
+
+//                if (lastButtonPressed == R.id.btn_dot ) {
+//                    sb.append(operandFirst.getString().substring(0, operandFirst.getString().length() - 1) +" ");
+//                    Log.d("DEBUG", "var 1");
+//                }
+//                else {
+//                    sb.append(operandFirst.getString() +" ");
+//                    Log.d("DEBUG", "var 2");
+//                }
+
                 if(stageCalculate == 0 || stageCalculate == 1 ) {
                     if (operandFirst == null) operandFirst = new Operand( 0 );
 
-                    String leftPart = operandFirst.getString();
+//                    String leftPart = operandFirst.getString();
+//                    String tmp = leftPart + digit;
+//                    Double tmp2 = Double.parseDouble(tmp);
+//
+//                    Log.d("DEBUG", "1 leftPart: "+ leftPart);
+//                    Log.d("DEBUG", "1 digit: "+ digit);
+//                    Log.d("DEBUG", "1 leftPart+digit: "+ tmp);
+//                    Log.d("DEBUG", "1 leftPart+digit_double: "+ tmp2);
 
-                    operandFirst = operandFirst.isDouble() ? new Operand( Double.parseDouble(leftPart + digit) ) : new Operand( Integer.parseInt(leftPart + digit) );
+                    //operandFirst = operandFirst.isDouble() ? new Operand( Double.parseDouble(leftPart + digit) ) : new Operand( Integer.parseInt(leftPart + digit) );
+
+                    operandFirst = Operand.getNewOperand(operandFirst, digit);
+
 
                     if( stageCalculate == 0 ) stageCalculate++;
+
+                    if ( operandFirst.getAfterDot() )
+                        operandFirst.setAfterDot(false);
 
                     showCurrentExpression();
                 }
@@ -138,11 +176,12 @@ public class MainActivity extends AppCompatActivity {
                 if(stageCalculate == 2 || stageCalculate == 3) {
                     if (operandSecond == null) operandSecond = new Operand( 0 );
 
-                    String leftPart = operandSecond.getString();
-
-                    operandSecond = operandSecond.isDouble() ? new Operand( Double.parseDouble(leftPart + digit) ) : new Operand( Integer.parseInt(leftPart + digit) );
+                    operandSecond = Operand.getNewOperand(operandSecond, digit);
 
                     if( stageCalculate == 2 ) stageCalculate++;
+
+                    if ( operandSecond.getAfterDot() )
+                        operandSecond.setAfterDot(false);
 
                     showCurrentExpression();
                 }
@@ -164,15 +203,25 @@ public class MainActivity extends AppCompatActivity {
                     //operandFirst = operandFirst.isDouble() ? operandFirst.getValueDouble() : operandFirst.getValueInteger();
                     operandFirst.setToDouble();
 
+                    lastButtonPressed = R.id.btn_dot;
+
+                    if ( ! operandFirst.getAfterDot() )
+                        operandFirst.setAfterDot(true);
+
                     showCurrentExpression();
 
                     //if(stageCalculate <= 2) stageCalculate++;
                 }
                 else
                 if(stageCalculate == 2 || stageCalculate == 3) {
-                    if (operandFirst == null) operandFirst = new Operand( 0 );
+                    if (operandFirst == null) operandSecond = new Operand( 0 );
                     //operandSecond = operandSecond.doubleValue();
                     operandSecond.setToDouble();
+
+                    lastButtonPressed = R.id.btn_dot;
+
+                    if ( ! operandSecond.getAfterDot() )
+                        operandSecond.setAfterDot(true);
 
                     showCurrentExpression();
 
@@ -186,33 +235,40 @@ public class MainActivity extends AppCompatActivity {
     private void showCurrentExpression() {
         StringBuilder sb = new StringBuilder();
 
+        if (lastButtonPressed == R.id.btn_dot ) {
+
+        }
+
+                Log.d("DEBUG", "stageCalculate = "+ stageCalculate +";");
+
         switch (stageCalculate) {
             case 0:
 //                Log.d("DEBUG", "stageCalculate = "+ stageCalculate +"; case 0");
-                sb.append(""+ operandFirst.getString() +" ");
+                sb.append(operandFirst.getString() +" ");
 
                 tv_expression.setText( sb );
                 break;
             case 1:
-                sb.append(""+ operandFirst.getString() +" ");
+                sb.append(operandFirst.getString() +" ");
 
                 tv_expression.setText( sb );
                 break;
             case 2:
-                sb.append(""+ operandFirst.getString() +" ");
-                sb.append(""+ operator.getString() +" ");
+                sb.append(operandFirst.getString() +" ");
+                sb.append(operator.getString() +" ");
 
                 tv_expression.setText( sb.toString() );
                 break;
             case 3:
-                sb.append(""+ operandFirst.getString() +" ");
-                sb.append(""+ operator.getString() +" ");
-                sb.append(""+ operandSecond.getString() +" ");
+                sb.append(operandFirst.getString() +" ");
+                sb.append(operator.getString() +" ");
+                sb.append(operandSecond.getString() +" ");
 
                 tv_expression.setText( sb.toString() );
                 break;
         }
 
+        sb.setLength(0);
     }
 
 
@@ -234,18 +290,23 @@ public class MainActivity extends AppCompatActivity {
                         switch (btnId) {
                             case R.id.btn_operand_plus:
                                 operator = Operator.PLUS;
+                                lastButtonPressed = R.id.btn_operand_plus;
                                 break;
                             case R.id.btn_operand_minus:
                                 operator = Operator.MINUS;
+                                lastButtonPressed = R.id.btn_operand_minus;
                                 break;
                             case R.id.btn_operand_division:
                                 operator = Operator.DIVISION;
+                                lastButtonPressed = R.id.btn_operand_division;
                                 break;
                             case R.id.btn_operand_multiplication:
                                 operator = Operator.MULTIPLY;
+                                lastButtonPressed = R.id.btn_operand_multiplication;
                                 break;
                             default:
                                 operator = Operator.PLUS;
+                                lastButtonPressed = R.id.btn_operand_plus;
                         }
                         //Log.d("DEBUG", "now stageCalculate is "+ stageCalculate);
                         stageCalculate += 1;
@@ -288,7 +349,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
 
-                    tv_result.setText( "= "+ tmpResult +"" );
+                    tv_result.setText( "= "+ tmpResult +" " );
                 }
                 else {
                     Integer tmpResult;
@@ -312,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
 
-                    tv_result.setText( "= "+ tmpResult +"" );
+                    tv_result.setText( "= "+ tmpResult +" " );
                 }
 
 
@@ -329,6 +390,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_result:
             {
                 if(stageCalculate >= 3) {
+                    lastButtonPressed = R.id.btn_result;
+
                     showCurrentResult();
 
 

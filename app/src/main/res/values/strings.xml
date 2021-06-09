@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">hw_1_calc</string>
+    <string name="app_name">hw_calc</string>
 
     <string name="btn_clear">C</string>
     <string name="btn_number_0">0</string>
